@@ -1,18 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
 public class Icon : MonoBehaviour
 {
+    private const float Speed = 2300;
+    private const float MinValue = 0.01f;
+
     [SerializeField] private string _id;
 
     private Vector3 _targetLocalPosition;
-    private float _speed = 2300;
     private Vector3 _targetWorldPosition;
     private Vector3 _currentPosition;
-    private bool _IsMovingDone;
+    
+    private bool _isMovingDone;
 
     private IconsHolder _iconsHolder;
     private PoolIcons _poolIcons;
@@ -29,11 +29,9 @@ public class Icon : MonoBehaviour
     private void Start()
     {
         _targetWorldPosition = transform.parent.TransformPoint(_targetLocalPosition);
-        
 
-       _poolIcons.CheckContainsValue(_id, this);
+        _poolIcons.CheckContainsValue(_id, this);
     }
-    
 
     private void Update()
     {
@@ -41,13 +39,13 @@ public class Icon : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position,
                 _targetWorldPosition,
-                _speed * Time.deltaTime);
+                Speed * Time.deltaTime);
         }
 
-        if (Vector3.Distance(transform.position, _targetWorldPosition) < 0.01f && !_IsMovingDone)
+        if (Vector3.Distance(transform.position, _targetWorldPosition) < MinValue && !_isMovingDone)
         {
-            _IsMovingDone = true;
-           _poolIcons.AddIDToList(_id, this);
+            _isMovingDone = true;
+           _poolIcons.CollectElementsInLists(_id, this);
         }
     }
 

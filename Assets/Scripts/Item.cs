@@ -13,24 +13,25 @@ public class Item : MonoBehaviour
         _canvas = canvas;
         _iconsHolder = iconsHolder;
         _poolIcons = poolIcons;
-        
     }
 
     public void SpawnIcon()
     {
         var icon = Instantiate(_iconPrefab);
-        _iconsHolder.AddToCounter();
 
         icon.Construct(_iconsHolder , _poolIcons);
-        
         icon.transform.SetParent(_canvas.transform, false);
 
         Vector3 worldPosition = transform.position;
-
         Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.GetComponent<RectTransform>(), screenPosition, null, out Vector2 localPosition);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.GetComponent<RectTransform>(),
+            screenPosition,
+            null,
+            out Vector2 localPosition);
 
         icon.GetComponent<RectTransform>().anchoredPosition = localPosition;
+        
+        _iconsHolder.AddToCounter();
     }
 }

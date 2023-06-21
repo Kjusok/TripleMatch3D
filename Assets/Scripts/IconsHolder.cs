@@ -11,11 +11,10 @@ public class IconsHolder : MonoBehaviour
         _counter++;
     }
 
-    public void Minus()
+    public void SubtractFromCounter()
     {
         _counter -= 3;
     }
-    
     
     public Vector2 TargetPosition()
     {

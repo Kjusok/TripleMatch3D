@@ -9,30 +9,21 @@ public class GameInstaller : MonoInstaller
     
     public override void InstallBindings()
     {
-        BindIconHolder();
-        BindCanvas();
-        BindPoolIcons();
+        BindElementsGames();
     }
     
-    private void BindIconHolder()
+    private void BindElementsGames()
     {
         Container.Bind<IconsHolder>()
             .FromInstance(_iconsHolder)
             .AsSingle()
             .NonLazy();
         
-    }
-    
-    private void BindPoolIcons()
-    {
         Container.Bind<PoolIcons>()
             .FromInstance(_poolIcons)
             .AsSingle()
             .NonLazy();
-    }
-    
-    private void BindCanvas()
-    {
+        
         Container.Bind<Canvas>()
             .FromInstance(_canvas)
             .AsSingle()
