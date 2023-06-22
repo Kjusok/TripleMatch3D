@@ -19,6 +19,8 @@ public class Item : MonoBehaviour
     {
         var icon = Instantiate(_iconPrefab);
 
+        _iconsHolder.AddToCounter();
+
         icon.Construct(_iconsHolder , _poolIcons);
         icon.transform.SetParent(_canvas.transform, false);
 
@@ -31,7 +33,5 @@ public class Item : MonoBehaviour
             out Vector2 localPosition);
 
         icon.GetComponent<RectTransform>().anchoredPosition = localPosition;
-        
-        _iconsHolder.AddToCounter();
     }
 }

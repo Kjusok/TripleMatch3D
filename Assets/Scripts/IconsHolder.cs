@@ -20,6 +20,7 @@ public class IconsHolder : MonoBehaviour
     {
         _posX = -390;
         _posY = -588;
+        
         for (int i = 1; i < _counter; i++)
         {
             _posX += 130;
