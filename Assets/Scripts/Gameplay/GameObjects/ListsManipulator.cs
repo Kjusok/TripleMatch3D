@@ -1,15 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//   //перемешивает список-метод логики перемешивания списка
-//    //добавляет в лист объекты которые пополи в пул и далее перемещивает или проверяет на сораность тройки
-//    //уничтожает дублированые объекты
-
-
 namespace Gameplay
 {
-    public class PoolIcons : MonoBehaviour
+    public class ListsManipulator : MonoBehaviour
     {
         private const int StartPositionX = -520;
         private const int NumberCells = 7;
@@ -17,11 +11,16 @@ namespace Gameplay
         private const int PositionY = -588;
         private const int DoubleStep = 2;
 
+        private Item3D _item3D;
+        private CheckerDuplicate2dItems _checkerDuplicate2dItems;
+        private Mover2DItems _mover2DItems;
+
         public List<string> ItemsIDList
         {
             get; private set;
         }
-        public List<Item2D> ItemsList{
+        public List<Item2D> ItemsList
+        {
             get; private set;
         }
         public List<Vector3> PositionsList
@@ -29,16 +28,7 @@ namespace Gameplay
             get; private set;
         }
 
-        private int _indexFoundObject;
-        private int _step = 1;
-
-        private bool _isRepeatsOnce;
-        private bool _isRepeatedTwice;
-
-        private Item3D _item3D;
-        private CheckerDuplicate2dItems _checkerDuplicate2dItems;
        
-
         private void Awake()
         {
             ItemsList = new List<Item2D>();
@@ -46,7 +36,8 @@ namespace Gameplay
             PositionsList = new List<Vector3>();
 
             _checkerDuplicate2dItems = GetComponent<CheckerDuplicate2dItems>();
-
+            _mover2DItems = GetComponent<Mover2DItems>();
+            
             CollectListPositions();
         }
 
@@ -62,11 +53,9 @@ namespace Gameplay
             }
         }
 
-
-
         private void SwapElementsInList()
         {
-            for (int i = ItemsIDList.Count - 1; i >= _indexFoundObject + DoubleStep; i--)
+            for (int i = ItemsIDList.Count - 1; i >= _mover2DItems.IndexFoundObject + DoubleStep; i--)
             {
                 Swap(ItemsIDList, i, i - 1);
                 Swap(ItemsList, i, i - 1);
@@ -78,13 +67,12 @@ namespace Gameplay
             (list[i], list[j]) = (list[j], list[i]);
         }
 
-
         public void CollectElementsInLists(string id, Item2D item2Ds)
         {
             ItemsIDList.Add(id);
             ItemsList.Add(item2Ds);
 
-            if (_isRepeatsOnce)
+            if (_checkerDuplicate2dItems.IsRepeatsOnce)
             {
                 SwapElementsInList();
             }
@@ -92,7 +80,7 @@ namespace Gameplay
             _checkerDuplicate2dItems.CheckingThreeIdentical(id);
         }
 
-        public void DestroyDuplicateElements(string id)
+        public void RemoveAndDestroyDuplicateElements(string id)
         {
             for (int i = ItemsIDList.Count - 1; i >= 0; i--)
             {
@@ -107,4 +95,3 @@ namespace Gameplay
         }
     }
 }
-

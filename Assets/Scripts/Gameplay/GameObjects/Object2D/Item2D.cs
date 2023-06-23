@@ -16,30 +16,34 @@ namespace Gameplay
 
         private bool _isMovingDone;
 
-        private Holder2DItems _holder2DItems;
-        private PoolIcons _poolIcons;
+        private CounterPositionCalculator _counterPositionCalculator;
+        private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
 
 
         [Inject]
-        public void Construct(Holder2DItems holder2DItems, PoolIcons poolIcons, CheckerDuplicate2dItems checkerDuplicate2dItems)
+        public void Construct(CounterPositionCalculator counterPositionCalculator, ListsManipulator listsManipulator, CheckerDuplicate2dItems checkerDuplicate2dItems)
         {
-            _holder2DItems = holder2DItems;
-            _poolIcons = poolIcons;
+            _counterPositionCalculator = counterPositionCalculator;
+            _listsManipulator = listsManipulator;
             _checkerDuplicate2dItems = checkerDuplicate2dItems;
 
-            _targetLocalPosition = _holder2DItems.TargetPosition();
+            _targetLocalPosition = _counterPositionCalculator.TargetPosition();
         }
 
         private void Start()
         {
-            
             _targetWorldPosition = transform.parent.TransformPoint(_targetLocalPosition);
 
             _checkerDuplicate2dItems.CheckContainsValue(_id, this);
         }
 
         private void Update()
+        {
+            MoveToTargetAndCollect();
+        }
+
+        private void MoveToTargetAndCollect()
         {
             if (transform.position != _targetLocalPosition)
             {
@@ -51,7 +55,7 @@ namespace Gameplay
             if (Vector3.Distance(transform.position, _targetWorldPosition) < MinValue && !_isMovingDone)
             {
                 _isMovingDone = true;
-                _poolIcons.CollectElementsInLists(_id, this);
+                _listsManipulator.CollectElementsInLists(_id, this);
             }
         }
 

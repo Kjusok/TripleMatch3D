@@ -26,6 +26,11 @@ namespace Gameplay
 
         private void Update()
         {
+            ChangeScale();
+        }
+
+        private void ChangeScale()
+        {
             if (transform.localScale.x < _startScale.x * Coefficient)
             {
                 transform.localScale += _startScale * Time.deltaTime * Speed;

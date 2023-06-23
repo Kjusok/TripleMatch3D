@@ -1,14 +1,15 @@
 using Gameplay;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Installers
 {
     public class GameInstaller : MonoInstaller
     {
-        [SerializeField] private Holder2DItems _holder2DItems;
+        [FormerlySerializedAs("_holder2DItems")] [SerializeField] private CounterPositionCalculator _counterPositionCalculator;
         [SerializeField] private Canvas _canvas;
-        [SerializeField] private PoolIcons _poolIcons;
+        [FormerlySerializedAs("_poolIcons")] [SerializeField] private ListsManipulator _listsManipulator;
         [SerializeField] private CheckerDuplicate2dItems _checkerDuplicate2dItems;
     
         public override void InstallBindings()
@@ -18,13 +19,13 @@ namespace Installers
     
         private void BindGameElementConfigurations()
         {
-            Container.Bind<Holder2DItems>()
-                .FromInstance(_holder2DItems)
+            Container.Bind<CounterPositionCalculator>()
+                .FromInstance(_counterPositionCalculator)
                 .AsSingle()
                 .NonLazy();
         
-            Container.Bind<PoolIcons>()
-                .FromInstance(_poolIcons)
+            Container.Bind<ListsManipulator>()
+                .FromInstance(_listsManipulator)
                 .AsSingle()
                 .NonLazy();
         

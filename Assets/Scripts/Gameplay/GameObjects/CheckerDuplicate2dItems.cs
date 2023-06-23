@@ -10,34 +10,35 @@ namespace Gameplay
         private const int DoubleStep = 2;
         private const int ValueDestroy = 3;
     
-        private int _indexFoundObject;
         private int _step = 1;
-    
-        private bool _isRepeatsOnce;
         private bool _isRepeatedTwice;
     
-        private Holder2DItems _holder2DItems;
+        private CounterPositionCalculator _counterPositionCalculator;
         private Mover2DItems _mover2DItems;
-        private PoolIcons _poolIcons;
+        private ListsManipulator _listsManipulator;
 
-    
-        [Inject]
-        public void Construct(Holder2DItems holder2DItems)
+        public bool IsRepeatsOnce
         {
-            _holder2DItems = holder2DItems;
+            get; private set;
+        }
+        
+        [Inject]
+        public void Construct(CounterPositionCalculator counterPositionCalculator)
+        {
+            _counterPositionCalculator = counterPositionCalculator;
         }
     
         private void Awake()
         {
             _mover2DItems = GetComponent<Mover2DItems>();
-            _poolIcons = GetComponent<PoolIcons>();
+            _listsManipulator = GetComponent<ListsManipulator>();
         }
     
         public void CheckContainsValue(string id, Item2D item2D)
         {
-            _isRepeatsOnce = _poolIcons.ItemsIDList.Contains(id);
+            IsRepeatsOnce = _listsManipulator.ItemsIDList.Contains(id);
     
-            _isRepeatedTwice = CheckMultipleOccurrences(_poolIcons.ItemsIDList, id);
+            _isRepeatedTwice = CheckMultipleOccurrences(_listsManipulator.ItemsIDList, id);
     
             if (_isRepeatedTwice)
             {
@@ -47,7 +48,7 @@ namespace Gameplay
                 return;
             }
     
-            if (_isRepeatsOnce)
+            if (IsRepeatsOnce)
             {
                 _step = 1;
                 _mover2DItems.MoveIconRight(id, item2D, _step);
@@ -64,7 +65,7 @@ namespace Gameplay
         {
             int count = 0;
     
-            foreach (string icon in _poolIcons.ItemsIDList)
+            foreach (string icon in _listsManipulator.ItemsIDList)
             {
                 if (icon == id)
                 {
@@ -72,9 +73,9 @@ namespace Gameplay
     
                     if (count >= ValueDestroy)
                     {
-                        _poolIcons.DestroyDuplicateElements(id);
+                        _listsManipulator.RemoveAndDestroyDuplicateElements(id);
                         _mover2DItems.MoveRemainingObjects();
-                        _holder2DItems.SubtractFromCounter();
+                        _counterPositionCalculator.SubtractFromCounter();
     
                         break;
                     }
