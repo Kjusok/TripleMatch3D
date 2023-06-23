@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce66fa67eb579a442a52aa5be1f4a3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _iconPrefab: {fileID: 5835213989030275732, guid: b57bcfc1ec5c45647b65ff7a49482085, type: 3}
+  _item2DPrefab: {fileID: 5835213989030275732, guid: b57bcfc1ec5c45647b65ff7a49482085, type: 3}
   _canvas: {fileID: 0}
 --- !u!114 &5305262404768163070
 MonoBehaviour:

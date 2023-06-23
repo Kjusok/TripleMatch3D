@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IconsHolder : MonoBehaviour
+public class Holder2DItems : MonoBehaviour
 {
     private int _posX;
     private int _posY;
