@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6557740109029788846}
   - component: {fileID: 2841956495527045703}
   - component: {fileID: 903243885223902788}
+  - component: {fileID: 6177242843517141765}
   m_Layer: 5
   m_Name: Spoon
   m_TagString: Untagged
@@ -76,3 +77,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6177242843517141765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921474824045956036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02afa5411cae4a4b8619ce3ba8115ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 10
