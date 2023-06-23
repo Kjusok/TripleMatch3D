@@ -5,13 +5,18 @@ namespace Gameplay
 {
     public class Spawner3DItems : MonoBehaviour
     {
-        [SerializeField] private Item3D[] _items;
+        private const float StartPoint = -3.5f;
+        private const float EndPoint = 3.5f;
+        private const float StartPositionY = 4f;
+        
+        [SerializeField] private ItemCountPair[] _itemCountPairs;
         [SerializeField] private Canvas _canvas;
 
         private CounterPositionCalculator _counterPositionCalculator;
         private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
 
+        
         [Inject]
         public void Construct(CounterPositionCalculator counterPositionCalculator, ListsManipulator listsManipulator, Canvas canvas, CheckerDuplicate2dItems checkerDuplicate2dItems)
         {
@@ -28,15 +33,18 @@ namespace Gameplay
 
         private void SpawnItems()
         {
-            for (int i = 0; i < 90; i++)
+            foreach (var pair in _itemCountPairs)
             {
-                var item = Instantiate(_items[Random.Range(0, 10)],
-                    new Vector3(Random.Range(-3.5f, 3.5f), 4, Random.Range(-3.5f, 3.5f)),
-                    Quaternion.identity);
+                for (int j = 0; j < pair.Count; j++)
+                {
+                    var item = Instantiate(pair.Item,
+                        new Vector3(Random.Range(StartPoint, EndPoint), StartPositionY, Random.Range(StartPoint, EndPoint)),
+                        Quaternion.identity);
 
-                item.Initialize(_canvas, _counterPositionCalculator, _listsManipulator, _checkerDuplicate2dItems);
+                    item.Initialize(_canvas, _counterPositionCalculator, _listsManipulator, _checkerDuplicate2dItems);
 
-                item.transform.parent = gameObject.transform;
+                    item.transform.parent = gameObject.transform;
+                }
             }
         }
     }

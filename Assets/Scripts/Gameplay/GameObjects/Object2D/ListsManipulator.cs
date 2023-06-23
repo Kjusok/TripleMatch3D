@@ -15,20 +15,11 @@ namespace Gameplay
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         private Mover2DItems _mover2DItems;
 
-        public List<string> ItemsIDList
-        {
-            get; private set;
-        }
-        public List<Item2D> ItemsList
-        {
-            get; private set;
-        }
-        public List<Vector3> PositionsList
-        {
-            get; private set;
-        }
+        public List<string> ItemsIDList { get; private set; }
+        public List<Item2D> ItemsList { get; private set; }
+        public List<Vector3> PositionsList { get; private set; }
 
-       
+
         private void Awake()
         {
             ItemsList = new List<Item2D>();
@@ -37,7 +28,7 @@ namespace Gameplay
 
             _checkerDuplicate2dItems = GetComponent<CheckerDuplicate2dItems>();
             _mover2DItems = GetComponent<Mover2DItems>();
-            
+
             CollectListPositions();
         }
 

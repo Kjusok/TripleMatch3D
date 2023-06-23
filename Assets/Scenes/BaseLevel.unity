@@ -1256,9 +1256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6150164838e3dd04ba6c3cd73c9dc89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _holder2DItems: {fileID: 1370414232}
+  _counterPositionCalculator: {fileID: 1370414232}
   _canvas: {fileID: 528728370}
-  _poolIcons: {fileID: 1370414231}
+  _listsManipulator: {fileID: 1370414231}
   _checkerDuplicate2dItems: {fileID: 1370414234}
 --- !u!1 &197810107
 GameObject:
@@ -7068,17 +7068,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db6cd0403a398e4098e5da2a4319908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _items:
-  - {fileID: 2098994128305237960, guid: a5e46e03d40535a42b7193f5d5854111, type: 3}
-  - {fileID: 2730236560250747315, guid: ad138ff3036ac7940badf4c2371f6e5c, type: 3}
-  - {fileID: 8255312373759262313, guid: 39a3d154d04433544b9dd6a5db39aac1, type: 3}
-  - {fileID: -5757250281804626168, guid: 1b2443b8cbe317446b840f6699447e57, type: 3}
-  - {fileID: -5296890817210197654, guid: 3b08735632a6f514dbecac65d0703214, type: 3}
-  - {fileID: 7232455661975083885, guid: 52cd868a2734c004da128c317c2847f0, type: 3}
-  - {fileID: 7549187373920774906, guid: f024d1fb51d23db4184fe2bb09236a26, type: 3}
-  - {fileID: 1686034465341647358, guid: 28853d0595e605b478a5f6ac767c2c20, type: 3}
-  - {fileID: 8394257851404762257, guid: f87b0ceb42f045c499f6e1cf2982a655, type: 3}
-  - {fileID: -8664960580334864395, guid: 2d9d235f268b7bd4fbe752fe2b8fd4d6, type: 3}
+  _itemCountPairs:
+  - _item: {fileID: 2098994128305237960, guid: a5e46e03d40535a42b7193f5d5854111, type: 3}
+    _count: 7
+  - _item: {fileID: -5757250281804626168, guid: 1b2443b8cbe317446b840f6699447e57, type: 3}
+    _count: 7
+  - _item: {fileID: 1686034465341647358, guid: 28853d0595e605b478a5f6ac767c2c20, type: 3}
+    _count: 10
+  - _item: {fileID: -8664960580334864395, guid: 2d9d235f268b7bd4fbe752fe2b8fd4d6, type: 3}
+    _count: 10
+  - _item: {fileID: -5296890817210197654, guid: 3b08735632a6f514dbecac65d0703214, type: 3}
+    _count: 20
   _canvas: {fileID: 0}
 --- !u!4 &1228336009
 Transform:
