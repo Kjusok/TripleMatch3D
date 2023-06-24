@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace Gameplay.Goals
 {
@@ -7,10 +8,15 @@ namespace Gameplay.Goals
     {
         [SerializeField] private Goal _goal;
         [SerializeField] private int _count;
-        [SerializeField] private Transform _position;
+        [SerializeField] private TMP_Text _text;
 
         public Goal Goal => _goal;
-        public int Count => _count;
-        public Transform Position => _position;
+        public int Count
+        {
+            get => _count;
+            set => _count = value;
+        }
+
+        public TMP_Text Text => _text;
     }
 }

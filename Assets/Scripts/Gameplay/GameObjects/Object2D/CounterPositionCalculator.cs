@@ -4,13 +4,17 @@ namespace Gameplay
 {
     public class CounterPositionCalculator : MonoBehaviour
     {
-        private const int PositionY = -588;
-        private const int StartPositionX = -390;
-        private const int StepPositionX = 130;
         private const int Triple = 3;
         
         private int _positionX;
         private int _counter;
+
+        private ListsManipulator _listsManipulator;
+
+        private void Awake()
+        {
+            _listsManipulator = GetComponent<ListsManipulator>();
+        }
 
         public void AddToCounter()
         {
@@ -24,14 +28,9 @@ namespace Gameplay
     
         public Vector2 TargetPosition()
         {
-            _positionX = StartPositionX;
-        
-            for (int i = 1; i < _counter; i++)
-            {
-                _positionX += StepPositionX;
-            }
-        
-            return new Vector2(_positionX, PositionY);
+            var position = _listsManipulator.PositionsList[_counter-1];
+            
+            return position.position;
         }
     } 
 }

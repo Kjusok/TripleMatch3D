@@ -1,28 +1,72 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay.Goals
 {
     public class GoalsHolder : MonoBehaviour
     {
-        [SerializeField] private GoalData[] _goalData;
-        [SerializeField] private TMP_Text[] _goalTexts;
+        [SerializeField] private List<GoalData> _goalData;
+        [SerializeField] private List<Goal> _currentGoal;
+        [SerializeField] private List<TMP_Text> _currentText;
+        
+        [SerializeField] private List<Transform> _positionGoal;
+        [SerializeField] private List<Transform>  _positionCount;
+
+        public List<GoalData> GoalData => _goalData;
+        public List<Goal> CurrentGoal => _currentGoal;
         
         
         private void Start()
         {
-            for (int i = 0; i < _goalData.Length && i < _goalTexts.Length; i++)
+            BuildGoalsPanel();
+        }
+
+        private void BuildGoalsPanel()
+        {
+            for (int i = 0; i < _goalData.Count; i++)
             {
-                _goalTexts[i].text = _goalData[i].Count.ToString();
+                _goalData[i].Text.text = _goalData[i].Count.ToString();
                 SpawnPrefab(i);
             }
         }
         
         private void SpawnPrefab(int i)
         {
-            var goal = Instantiate(_goalData[i].Goal, _goalData[i].Position);
+            var goal = Instantiate(_goalData[i].Goal, _positionGoal[i]);
             goal.transform.SetAsFirstSibling();
+            
+            _currentGoal.Add(goal);
+        }
+        
+        public void SubtractCount(int goalIndex)
+        {
+            if (goalIndex >= 0 && goalIndex < _currentGoal.Count)
+            {
+                _goalData[goalIndex].Count -= 1;
+                _goalData[goalIndex].Text.text = _goalData[goalIndex].Count.ToString();
+            }
+        }
+
+        public void TurnOffCoalBars(int i)
+        {
+            _currentGoal[i].Destroy();
+            Destroy(_currentText[i]);
+
+            _currentGoal.RemoveAt(i);
+            _currentText.RemoveAt(i);
+            _goalData.RemoveAt(i);
+
+            MoveGoals(i);
+        }
+
+        private void MoveGoals(int index)
+        {
+            for (int i = _currentGoal.Count - 1; i >= index; i--)
+            {
+                _currentGoal[i].transform.position = _positionGoal[i].position;
+                _currentText[i].transform.position = _positionCount[i].position;
+            }
         }
     }
 }

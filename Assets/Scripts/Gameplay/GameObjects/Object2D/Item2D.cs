@@ -11,7 +11,6 @@ namespace Gameplay
         [SerializeField] private string _id;
 
         private Vector3 _targetLocalPosition;
-        private Vector3 _targetWorldPosition;
         private Vector3 _currentPosition;
 
         private bool _isMovingDone;
@@ -19,23 +18,29 @@ namespace Gameplay
         private CounterPositionCalculator _counterPositionCalculator;
         private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
+        private CompareItem2DAndGoal _compareItem2DAndGoal;
+
 
 
         [Inject]
-        public void Construct(CounterPositionCalculator counterPositionCalculator, ListsManipulator listsManipulator, CheckerDuplicate2dItems checkerDuplicate2dItems)
+        public void Construct(CounterPositionCalculator counterPositionCalculator,
+            ListsManipulator listsManipulator,
+            CheckerDuplicate2dItems checkerDuplicate2dItems,
+            CompareItem2DAndGoal compareItem2DAndGoal)
         {
             _counterPositionCalculator = counterPositionCalculator;
             _listsManipulator = listsManipulator;
             _checkerDuplicate2dItems = checkerDuplicate2dItems;
-
-            _targetLocalPosition = _counterPositionCalculator.TargetPosition();
+            _compareItem2DAndGoal = compareItem2DAndGoal;
         }
 
         private void Start()
-        {
-            _targetWorldPosition = transform.parent.TransformPoint(_targetLocalPosition);
+        {           
+            _targetLocalPosition = _counterPositionCalculator.TargetPosition();
 
+            Debug.Log(_targetLocalPosition);
             _checkerDuplicate2dItems.CheckContainsValue(_id, this);
+            _compareItem2DAndGoal.CompareID(_id);
         }
 
         private void Update()
@@ -48,11 +53,11 @@ namespace Gameplay
             if (transform.position != _targetLocalPosition)
             {
                 transform.position = Vector3.MoveTowards(transform.position,
-                    _targetWorldPosition,
+                    _targetLocalPosition,
                     Speed * Time.deltaTime);
             }
 
-            if (Vector3.Distance(transform.position, _targetWorldPosition) < MinValue && !_isMovingDone)
+            if (Vector3.Distance(transform.position, _targetLocalPosition) < MinValue && !_isMovingDone)
             {
                 _isMovingDone = true;
                 _listsManipulator.CollectElementsInLists(_id, this);
@@ -62,7 +67,6 @@ namespace Gameplay
         public void ChangePosition(Vector3 position)
         {
             _targetLocalPosition = position;
-            _targetWorldPosition = transform.parent.TransformPoint(_targetLocalPosition);
         }
 
         public void DestroyIcon()

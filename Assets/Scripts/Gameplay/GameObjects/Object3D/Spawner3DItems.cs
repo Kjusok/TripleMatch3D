@@ -15,15 +15,21 @@ namespace Gameplay
         private CounterPositionCalculator _counterPositionCalculator;
         private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
+        private CompareItem2DAndGoal _compareItem2DAndGoal;
 
         
         [Inject]
-        public void Construct(CounterPositionCalculator counterPositionCalculator, ListsManipulator listsManipulator, Canvas canvas, CheckerDuplicate2dItems checkerDuplicate2dItems)
+        public void Construct(CounterPositionCalculator counterPositionCalculator,
+            ListsManipulator listsManipulator,
+            Canvas canvas,
+            CheckerDuplicate2dItems checkerDuplicate2dItems,
+            CompareItem2DAndGoal compareItem2DAndGoal)
         {
             _counterPositionCalculator = counterPositionCalculator;
             _listsManipulator = listsManipulator;
             _canvas = canvas;
             _checkerDuplicate2dItems = checkerDuplicate2dItems;
+            _compareItem2DAndGoal = compareItem2DAndGoal;
         }
 
         private void Start()
@@ -41,7 +47,7 @@ namespace Gameplay
                         new Vector3(Random.Range(StartPoint, EndPoint), StartPositionY, Random.Range(StartPoint, EndPoint)),
                         Quaternion.identity);
 
-                    item.Initialize(_canvas, _counterPositionCalculator, _listsManipulator, _checkerDuplicate2dItems);
+                    item.Initialize(_canvas, _counterPositionCalculator, _listsManipulator, _checkerDuplicate2dItems, _compareItem2DAndGoal);
 
                     item.transform.parent = gameObject.transform;
                 }

@@ -7,10 +7,11 @@ namespace Installers
 {
     public class GameInstaller : MonoInstaller
     {
-        [FormerlySerializedAs("_holder2DItems")] [SerializeField] private CounterPositionCalculator _counterPositionCalculator;
+        [SerializeField] private CounterPositionCalculator _counterPositionCalculator;
         [SerializeField] private Canvas _canvas;
-        [FormerlySerializedAs("_poolIcons")] [SerializeField] private ListsManipulator _listsManipulator;
+        [SerializeField] private ListsManipulator _listsManipulator;
         [SerializeField] private CheckerDuplicate2dItems _checkerDuplicate2dItems;
+        [SerializeField] private CompareItem2DAndGoal _compareItem2DAndGoal;
     
         public override void InstallBindings()
         {
@@ -36,6 +37,11 @@ namespace Installers
             
             Container.Bind<CheckerDuplicate2dItems>()
                 .FromInstance(_checkerDuplicate2dItems)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<CompareItem2DAndGoal>()
+                .FromInstance(_compareItem2DAndGoal)
                 .AsSingle()
                 .NonLazy();
         }

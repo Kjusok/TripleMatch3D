@@ -4,6 +4,12 @@ namespace Gameplay.Goals
 {
     public class Goal : MonoBehaviour
     {
-        [SerializeField] private string _id;
+        [SerializeField] public string _id;
+
+
+        public void Destroy()
+        {
+           Destroy(gameObject); 
+        }
     }
 }

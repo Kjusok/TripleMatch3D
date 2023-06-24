@@ -22,11 +22,11 @@ namespace Gameplay
 
             IndexFoundObject = _listsManipulator.ItemsIDList.FindIndex(obj => obj == valueToCheck);
 
-            item2D.ChangePosition(_listsManipulator.PositionsList[IndexFoundObject + step]);
+            item2D.ChangePosition(_listsManipulator.PositionsList[IndexFoundObject + step].position);
 
             for (int i = _listsManipulator.ItemsList.Count - 1; i >= IndexFoundObject + step; i--)
             {
-                _listsManipulator.ItemsList[i].ChangePosition(_listsManipulator.PositionsList[i + 1]);
+                _listsManipulator.ItemsList[i].ChangePosition(_listsManipulator.PositionsList[i + 1].position);
             }
         }
     
@@ -34,7 +34,7 @@ namespace Gameplay
         {
             for (int i = 0; i < _listsManipulator.ItemsList.Count; i++)
             {
-                _listsManipulator.ItemsList[i].ChangePosition(_listsManipulator.PositionsList[i]);
+                _listsManipulator.ItemsList[i].ChangePosition(_listsManipulator.PositionsList[i].position);
             }
         }
     }

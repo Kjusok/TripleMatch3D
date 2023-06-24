@@ -5,10 +5,8 @@ namespace Gameplay
 {
     public class ListsManipulator : MonoBehaviour
     {
-        private const int StartPositionX = -520;
-        private const int NumberCells = 7;
-        private const int StepXPos = 130;
-        private const int PositionY = -588;
+        [SerializeField] private List<Transform> _position;
+        
         private const int DoubleStep = 2;
 
         private Item3D _item3D;
@@ -17,31 +15,16 @@ namespace Gameplay
 
         public List<string> ItemsIDList { get; private set; }
         public List<Item2D> ItemsList { get; private set; }
-        public List<Vector3> PositionsList { get; private set; }
+        public List<Transform> PositionsList => _position;
 
 
         private void Awake()
         {
             ItemsList = new List<Item2D>();
             ItemsIDList = new List<string>();
-            PositionsList = new List<Vector3>();
 
             _checkerDuplicate2dItems = GetComponent<CheckerDuplicate2dItems>();
             _mover2DItems = GetComponent<Mover2DItems>();
-
-            CollectListPositions();
-        }
-
-        private void CollectListPositions()
-        {
-            var posX = StartPositionX;
-
-            for (int i = 0; i < NumberCells; i++)
-            {
-                posX += StepXPos;
-
-                PositionsList.Add(new Vector3(posX, PositionY));
-            }
         }
 
         private void SwapElementsInList()
