@@ -38,7 +38,6 @@ namespace Gameplay
         {           
             _targetLocalPosition = _counterPositionCalculator.TargetPosition();
 
-            Debug.Log(_targetLocalPosition);
             _checkerDuplicate2dItems.CheckContainsValue(_id, this);
             _compareItem2DAndGoal.CompareID(_id);
         }

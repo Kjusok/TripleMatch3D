@@ -48,7 +48,7 @@ namespace Gameplay.Goals
             }
         }
 
-        public void TurnOffCoalBars(int i)
+        public void RemoveGoalElements(int i)
         {
             _currentGoal[i].Destroy();
             Destroy(_currentText[i]);
@@ -64,8 +64,8 @@ namespace Gameplay.Goals
         {
             for (int i = _currentGoal.Count - 1; i >= index; i--)
             {
-                _currentGoal[i].transform.position = _positionGoal[i].position;
-                _currentText[i].transform.position = _positionCount[i].position;
+                _currentGoal[i].ChangePosition(_positionGoal[i].position);
+                _currentText[i].GetComponent<MoveToTarget>().ChangePosition(_positionCount[i].position);
             }
         }
     }

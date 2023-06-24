@@ -21,14 +21,12 @@ namespace Gameplay
 
                if (id == currentId)
                {
-                   Debug.Log(i);
-
                   _goalsHolder.SubtractCount(i);
                }
 
                if (currentCount == 1)
                {
-                   _goalsHolder.TurnOffCoalBars(i);
+                   _goalsHolder.RemoveGoalElements(i);
                }
             }
         }
