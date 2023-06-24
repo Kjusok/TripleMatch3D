@@ -11,7 +11,8 @@ namespace Gameplay
         private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         private CompareItem2DAndGoal _compareItem2DAndGoal;
-    
+        
+        
         public void Initialize(Canvas canvas,
             CounterPositionCalculator counterPositionCalculator,
             ListsManipulator listsManipulator, 

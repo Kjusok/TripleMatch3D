@@ -1,6 +1,9 @@
 ﻿using System;
+using Gameplay.Services;
 using TMPro;
+using UI;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
@@ -8,9 +11,23 @@ namespace Gameplay
     {
         [SerializeField] private TMP_Text _textTimer;
         [SerializeField] private float _timer = 180;
+        [SerializeField] private CompleteMenu _completeMenu;
+        
+        private IPause _pauseManager;
+
+        [Inject]
+        public void Construct(IPause pause)
+        {
+            _pauseManager = pause;
+        }
         
         private void Update()
         {
+            if (_pauseManager.Paused)
+            {
+               return; 
+            }
+            
             _timer -= Time.deltaTime;
             
             UpdateTimeText(_textTimer, _timer);
@@ -23,6 +40,8 @@ namespace Gameplay
             var seconds = timeSpan.Seconds;
 
             text.text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
+            
+            _completeMenu.SafeTime(text.text);
         }
     }
 }

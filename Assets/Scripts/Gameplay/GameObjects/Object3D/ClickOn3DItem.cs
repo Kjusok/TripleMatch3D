@@ -9,7 +9,8 @@ namespace Gameplay
     
         private Vector3 _startScale;
         private float _posY;
-    
+
+        
         public void OnMouseUp()
         {
             GetComponent<Item3D>().SpawnIcon();

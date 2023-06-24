@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -15,8 +16,10 @@ namespace Gameplay.Goals
 
         public List<GoalData> GoalData => _goalData;
         public List<Goal> CurrentGoal => _currentGoal;
-        
-        
+
+        public event Action TaskCompleted;
+
+
         private void Start()
         {
             BuildGoalsPanel();
@@ -58,8 +61,17 @@ namespace Gameplay.Goals
             _goalData.RemoveAt(i);
 
             MoveGoals(i);
+            LevelFinished();
         }
 
+        private void LevelFinished()
+        {
+            if (_goalData.Count == 0)
+            {
+                TaskCompleted?.Invoke();
+            }
+        }
+        
         private void MoveGoals(int index)
         {
             for (int i = _currentGoal.Count - 1; i >= index; i--)
