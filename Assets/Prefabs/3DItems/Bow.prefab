@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 8534118889586594715}
   - component: {fileID: 9112059828100425144}
   - component: {fileID: 8255312373759262313}
-  - component: {fileID: -8218787973828028380}
   - component: {fileID: 3243158578041482431}
+  - component: {fileID: 2630445307343439574}
+  - component: {fileID: 4149063189103654531}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -150,19 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item2DPrefab: {fileID: 1435498122143733602, guid: 0738391748731954b88761e710cdd8eb, type: 3}
-  _canvas: {fileID: 0}
---- !u!114 &-8218787973828028380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6228259636151893360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdcbd65b12a84743a98a78791370057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3243158578041482431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +169,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2630445307343439574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6228259636151893360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdcbd65b12a84743a98a78791370057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4149063189103654531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6228259636151893360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b090ce15d2f4974acd1fa976b405bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

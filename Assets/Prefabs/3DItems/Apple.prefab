@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 2506760751472340602}
   - component: {fileID: 4771875862803500787}
   - component: {fileID: 2098994128305237960}
-  - component: {fileID: 5534537787294862142}
   - component: {fileID: -7990548790519231779}
+  - component: {fileID: -6554221265377114222}
+  - component: {fileID: -4654227142914210257}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -150,19 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item2DPrefab: {fileID: 8508517646679196952, guid: 99b8d2da861a67f4b89a796f9ca1745a, type: 3}
-  _canvas: {fileID: 0}
---- !u!114 &5534537787294862142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2835439960902416271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdcbd65b12a84743a98a78791370057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-7990548790519231779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +169,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &-6554221265377114222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835439960902416271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdcbd65b12a84743a98a78791370057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4654227142914210257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835439960902416271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b090ce15d2f4974acd1fa976b405bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

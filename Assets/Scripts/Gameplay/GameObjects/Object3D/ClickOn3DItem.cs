@@ -1,4 +1,6 @@
+using Gameplay.Services;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
@@ -8,25 +10,43 @@ namespace Gameplay
         private const float Speed = 2f;
     
         private Vector3 _startScale;
-        private float _posY;
-
         
+        private IPause _pauseManager;
+        
+        
+        [Inject]
+        public void Construct(IPause pause)
+        {
+            _pauseManager = pause;
+        }
+
         public void OnMouseUp()
         {
-            GetComponent<Item3D>().SpawnIcon();
+            if (!_pauseManager.Paused)
+            {
+                GetComponent<Item3D>().SpawnIcon();
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
 
         public void OnMouseDown()
         {
-            GetComponent<Outline>().enabled = true;
+            if (!_pauseManager.Paused)
+            {
+                GetComponent<Outline>().enabled = true;
 
-            _startScale = transform.localScale;
+                _startScale = transform.localScale;
+            }
         }
 
         private void Update()
         {
+            if (_pauseManager.Paused)
+            {
+                return;
+            }
+            
             ChangeScale();
         }
 

@@ -11,26 +11,27 @@ namespace UI
         [SerializeField] private FailedMenu _failedMenu;
 
         private GoalsHolder _goalsHolder;
-        private Item2DCounter _item2DCounter;
+
+        private IFailedLevel _failedLevel;
 
         
         [Inject]
-        public void Construct(GoalsHolder goalsHolder, Item2DCounter item2DCounter)
+        public void Construct(GoalsHolder goalsHolder, IFailedLevel failedLevel)
         {
             _goalsHolder = goalsHolder;
-            _item2DCounter = item2DCounter;
+            _failedLevel = failedLevel;
         }
         
         private void Start()
         {
             _goalsHolder.TaskCompleted += _completeMenu.Open;
-            _item2DCounter.TaskFailed += _failedMenu.Open;
+            _failedLevel.TaskFailed += _failedMenu.Open;
         }
 
         private void OnDestroy()
         {
             _goalsHolder.TaskCompleted -= _completeMenu.Open;
-            _item2DCounter.TaskFailed -= _failedMenu.Open;
+            _failedLevel.TaskFailed -= _failedMenu.Open;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Gameplay.Goals;
+﻿using System.Collections.Generic;
+using Gameplay.Goals;
 using UnityEngine;
 
 namespace Gameplay
@@ -19,15 +20,15 @@ namespace Gameplay
                 var currentCount = _goalsHolder.GoalData[i].Count;
                 var currentId = _goalsHolder.CurrentGoal[i]._id;
 
-               if (id == currentId)
-               {
-                  _goalsHolder.SubtractCount(i);
-               }
-
-               if (currentCount == 1)
-               {
-                   _goalsHolder.RemoveGoalElements(i);
-               }
+                if (id == currentId)
+                {
+                    _goalsHolder.SubtractCount(i);
+                    
+                    if (currentCount == 1)
+                    {
+                        _goalsHolder.RemoveGoalElements(i);
+                    }
+                }
             }
         }
     }

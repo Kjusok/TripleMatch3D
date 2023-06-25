@@ -1,6 +1,7 @@
 using Gameplay;
 using Gameplay.Goals;
 using Gameplay.Services;
+using UI;
 using UnityEngine;
 using Zenject;
 
@@ -9,18 +10,29 @@ namespace Installers
     public class GameInstaller : MonoInstaller
     {
         [Header("Gameplay Elements")]
+        
+        [Header("3D Items")]
+        [SerializeField] private Spawner3DItems _spawner3DItems;
+        
+        [Header("2D Items")]
         [SerializeField] private PositionCalculator _positionCalculator;
         [SerializeField] private ListsManipulator _listsManipulator;
         [SerializeField] private CheckerDuplicate2dItems _checkerDuplicate2dItems;
+        [SerializeField] private Item2DCounter _item2DCounter;
+       
+        [Header("Goals")]
         [SerializeField] private CompareItem2DAndGoal _compareItem2DAndGoal;
         [SerializeField] private GoalsHolder _goalsHolder;
+        
+        [Header("Timer")]
         [SerializeField] private Timer _timer;
-        [SerializeField] private Item2DCounter _item2DCounter;
-    
+        
+        
         public override void InstallBindings()
         {
             BindGameElementConfigurations();
             BindPauseManager();
+            BindFailedObserver();
         }
         
         private void BindPauseManager()
@@ -30,7 +42,16 @@ namespace Installers
                 .AsSingle()
                 .Lazy();
         }
-    
+
+        private void BindFailedObserver()
+        {
+            Container.Bind<IFailedLevel>()
+                .To<FailedObserver>()
+                .FromNew()
+                .AsSingle()
+                .Lazy();
+        }
+
         private void BindGameElementConfigurations()
         {
             Container.Bind<PositionCalculator>()
@@ -65,6 +86,11 @@ namespace Installers
             
             Container.Bind<Item2DCounter>()
                 .FromInstance(_item2DCounter)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<Spawner3DItems>()
+                .FromInstance(_spawner3DItems)
                 .AsSingle()
                 .NonLazy();
         }

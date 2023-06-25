@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 6375863369098507712}
   - component: {fileID: 5536650123371048721}
   - component: {fileID: 2730236560250747315}
-  - component: {fileID: 6582082651239939360}
   - component: {fileID: -7857126699514434351}
+  - component: {fileID: -8751841789775749481}
+  - component: {fileID: -4522732362927761308}
   m_Layer: 0
   m_Name: 'Bird '
   m_TagString: Untagged
@@ -150,19 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item2DPrefab: {fileID: -5077546607456577573, guid: a4154502954beef47bc89dc754a093cd, type: 3}
-  _canvas: {fileID: 0}
---- !u!114 &6582082651239939360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5828342290133785379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdcbd65b12a84743a98a78791370057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-7857126699514434351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +169,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &-8751841789775749481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5828342290133785379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdcbd65b12a84743a98a78791370057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4522732362927761308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5828342290133785379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b090ce15d2f4974acd1fa976b405bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

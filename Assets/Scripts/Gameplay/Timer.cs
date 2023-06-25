@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class Timer : MonoBehaviour
+    public class Timer : MonoBehaviour, IFailedLevel
     {
         [SerializeField] private TMP_Text _textTimer;
         [SerializeField] private float _timer = 180;
@@ -16,7 +16,8 @@ namespace Gameplay
         private IPause _pauseManager;
 
         public float CurrentTime => _timer;
-        
+        public event Action TaskFailed;
+
 
         [Inject]
         public void Construct(IPause pause)
@@ -29,6 +30,11 @@ namespace Gameplay
             if (_pauseManager.Paused)
             {
                return; 
+            }
+
+            if (_timer <= 0)
+            {
+                TaskFailed?.Invoke();
             }
             
             _timer -= Time.deltaTime;

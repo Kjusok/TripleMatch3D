@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 5179097385439477756}
   - component: {fileID: 8026852140533073870}
   - component: {fileID: -5757250281804626168}
-  - component: {fileID: 2698462531609955792}
   - component: {fileID: 5587565438696815231}
+  - component: {fileID: -2474134845078683745}
+  - component: {fileID: 2147536175470089425}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
@@ -150,19 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item2DPrefab: {fileID: -9189860638324988061, guid: 7172743d0a791b24c9469b6bf71e1fe1, type: 3}
-  _canvas: {fileID: 0}
---- !u!114 &2698462531609955792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2898354799564038932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdcbd65b12a84743a98a78791370057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5587565438696815231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +169,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &-2474134845078683745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898354799564038932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdcbd65b12a84743a98a78791370057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2147536175470089425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898354799564038932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b090ce15d2f4974acd1fa976b405bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

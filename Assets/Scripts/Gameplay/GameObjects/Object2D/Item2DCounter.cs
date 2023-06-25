@@ -3,9 +3,10 @@ using System;
 
 namespace Gameplay
 {
-    public class Item2DCounter : MonoBehaviour
+    public class Item2DCounter : MonoBehaviour, IFailedLevel
     {
         private const int Triple = 3;
+        private const int LimitCount = 7;
 
         private int _counter;
 
@@ -27,7 +28,7 @@ namespace Gameplay
         {
             if (!isRepeatsOnce)
             {
-                if (_counter == 7)
+                if (_counter == LimitCount)
                 {
                     TaskFailed?.Invoke();
                 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Services;
 using UnityEngine;
 using Zenject;
 
@@ -11,14 +12,15 @@ namespace Gameplay
         private const float StartPositionY = 4f;
         
         [SerializeField] private List<ItemCountPair> _itemCountPairs;
+        
         private List<Item3D> _itemsClickList;
-
         private PositionCalculator _positionCalculator;
         private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         private CompareItem2DAndGoal _compareItem2DAndGoal;
-        private CollectAndDisableItems3D _collectAndDisableItems3D;
+        private CollectItems3D _collectItems3D;
         private Item2DCounter _item2DCounter;
+        private IPause _pauseManager;
 
         
         [Inject]
@@ -26,18 +28,20 @@ namespace Gameplay
             ListsManipulator listsManipulator,
             CheckerDuplicate2dItems checkerDuplicate2dItems,
             CompareItem2DAndGoal compareItem2DAndGoal,
-            Item2DCounter item2DCounter)
+            Item2DCounter item2DCounter,
+            IPause pause)
         {
             _positionCalculator = positionCalculator;
             _listsManipulator = listsManipulator;
             _checkerDuplicate2dItems = checkerDuplicate2dItems;
             _compareItem2DAndGoal = compareItem2DAndGoal;
             _item2DCounter = item2DCounter;
+            _pauseManager = pause;
         }
 
         private void Awake()
         {
-            _collectAndDisableItems3D = GetComponent<CollectAndDisableItems3D>();
+            _collectItems3D = GetComponent<CollectItems3D>();
         }
 
         private void Start()
@@ -55,10 +59,13 @@ namespace Gameplay
                         new Vector3(Random.Range(StartPoint, EndPoint), StartPositionY, Random.Range(StartPoint, EndPoint)),
                         Quaternion.identity);
                     
+                    item.GetComponent<ClickOn3DItem>().Construct(_pauseManager);
+                    item.GetComponent<GravitySwitch>().Construct(_pauseManager);
+                    
                     item.Initialize(_positionCalculator, _listsManipulator, _checkerDuplicate2dItems, _compareItem2DAndGoal, _item2DCounter);
                     item.transform.parent = gameObject.transform;
                     
-                    _collectAndDisableItems3D.AddToList(item);
+                    _collectItems3D.AddToList(item);
                 }
             }
         }

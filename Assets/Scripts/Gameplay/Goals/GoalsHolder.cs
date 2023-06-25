@@ -53,12 +53,13 @@ namespace Gameplay.Goals
 
         public void RemoveGoalElements(int i)
         {
+            _goalData.RemoveAt(i);
+            
             _currentGoal[i].Destroy();
             Destroy(_currentText[i]);
 
             _currentGoal.RemoveAt(i);
             _currentText.RemoveAt(i);
-            _goalData.RemoveAt(i);
 
             MoveGoals(i);
             LevelFinished();
@@ -77,6 +78,10 @@ namespace Gameplay.Goals
             for (int i = _currentGoal.Count - 1; i >= index; i--)
             {
                 _currentGoal[i].ChangePosition(_positionGoal[i].position);
+            }
+            
+            for (int i = _currentText.Count - 1; i >= index; i--)
+            {
                 _currentText[i].GetComponent<MoveToTarget>().ChangePosition(_positionCount[i].position);
             }
         }
