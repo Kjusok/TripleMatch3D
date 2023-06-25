@@ -32,14 +32,19 @@ namespace Gameplay
                return; 
             }
 
+            UpdateTimerAndCheckFailed();
+            
+            UpdateTimeText(_textTimer, _timer);
+        }
+
+        private void UpdateTimerAndCheckFailed()
+        {
             if (_timer <= 0)
             {
                 TaskFailed?.Invoke();
             }
             
             _timer -= Time.deltaTime;
-            
-            UpdateTimeText(_textTimer, _timer);
         }
 
         private void UpdateTimeText(TMP_Text text, float time)

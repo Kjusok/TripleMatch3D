@@ -17,11 +17,8 @@ namespace Gameplay
         private Mover2DItems _mover2DItems;
         private ListsManipulator _listsManipulator;
 
-        public bool IsRepeatsOnce
-        {
-            get; private set;
-        }
-        
+        public bool IsRepeatsOnce { get; private set; }
+
         [Inject]
         public void Construct(Item2DCounter item2DCounter)
         {

@@ -30,7 +30,7 @@ namespace UI
         
         public void BackToStartMenu()
         {
-            SceneManager.LoadScene("StartGame");
+            SceneManager.LoadScene("StartSceneLoader");
         }
     }
 }

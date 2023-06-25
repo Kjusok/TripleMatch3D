@@ -26,6 +26,11 @@ namespace UI
 
         private void Update()
         {
+           CheckTime();
+        }
+
+        private void CheckTime()
+        {
             if (_timer.CurrentTime > TimeTakeThreeStars)
             {
                 _starOne.enabled = true;

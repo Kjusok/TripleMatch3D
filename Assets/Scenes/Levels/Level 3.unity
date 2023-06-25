@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 6b38344b7da6eea429cfcdfd3896392b, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: f957b783e0001a44e8a7cd57c38d004b, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1
+  m_text: Level 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8607e5fe58ebf6940945bb28f2552694, type: 2}
   m_sharedMaterial: {fileID: 756368269887565222, guid: 8607e5fe58ebf6940945bb28f2552694, type: 2}
@@ -1382,7 +1382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &197810108
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2019,18 +2019,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goalData:
-  - _goal: {fileID: 1893650589485031621, guid: 5924e57808c135446bebd217ecd9da4a, type: 3}
-    _count: 3
+  - _goal: {fileID: -9091025106449487231, guid: 0bf175c43a872bc4d8e0a1a18524fe6e, type: 3}
+    _count: 6
     _text: {fileID: 983842340}
   - _goal: {fileID: -7165187830844510027, guid: 3d51109e5c79448499a9c075ab705f94, type: 3}
-    _count: 3
+    _count: 12
     _text: {fileID: 1938874777}
-  - _goal: {fileID: 6177242843517141765, guid: befd8dac948f8ad4492c73a18a870457, type: 3}
-    _count: 3
+  - _goal: {fileID: -8537403029227570973, guid: 829d73c7ef3e69343a6ad961c44733db, type: 3}
+    _count: 6
     _text: {fileID: 1614261933}
-  - _goal: {fileID: 6573295438093814328, guid: 0ac6576074bdab3409e0b3324b6315d6, type: 3}
-    _count: 3
-    _text: {fileID: 1419040323}
   _currentGoal: []
   _currentText:
   - {fileID: 983842340}
@@ -3546,7 +3543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &525116700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7361,7 +7358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1074253167
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8276,19 +8273,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemCountPairs:
   - _item: {fileID: 2098994128305237960, guid: a5e46e03d40535a42b7193f5d5854111, type: 3}
-    _count: 7
+    _count: 6
   - _item: {fileID: -5757250281804626168, guid: 1b2443b8cbe317446b840f6699447e57, type: 3}
-    _count: 7
+    _count: 6
+  - _item: {fileID: 7549187373920774906, guid: f024d1fb51d23db4184fe2bb09236a26, type: 3}
+    _count: 10
   - _item: {fileID: 1686034465341647358, guid: 28853d0595e605b478a5f6ac767c2c20, type: 3}
-    _count: 10
-  - _item: {fileID: -8664960580334864395, guid: 2d9d235f268b7bd4fbe752fe2b8fd4d6, type: 3}
-    _count: 10
-  - _item: {fileID: 2730236560250747315, guid: ad138ff3036ac7940badf4c2371f6e5c, type: 3}
-    _count: 10
+    _count: 18
+  - _item: {fileID: -5296890817210197654, guid: 3b08735632a6f514dbecac65d0703214, type: 3}
+    _count: 6
   - _item: {fileID: 8255312373759262313, guid: 39a3d154d04433544b9dd6a5db39aac1, type: 3}
-    _count: 10
-  - _item: {fileID: 7232455661975083885, guid: 52cd868a2734c004da128c317c2847f0, type: 3}
-    _count: 10
+    _count: 9
 --- !u!4 &1228336009
 Transform:
   m_ObjectHideFlags: 0
@@ -13057,7 +13052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1954817684
 RectTransform:
   m_ObjectHideFlags: 0

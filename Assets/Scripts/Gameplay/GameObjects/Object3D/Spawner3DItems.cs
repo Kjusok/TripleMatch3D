@@ -56,13 +56,19 @@ namespace Gameplay
                 for (int j = 0; j < pair.Count; j++)
                 {
                     var item = Instantiate(pair.Item,
-                        new Vector3(Random.Range(StartPoint, EndPoint), StartPositionY, Random.Range(StartPoint, EndPoint)),
+                        new Vector3(Random.Range(StartPoint, EndPoint),
+                            StartPositionY,
+                            Random.Range(StartPoint, EndPoint)),
                         Quaternion.identity);
                     
                     item.GetComponent<ClickOn3DItem>().Construct(_pauseManager);
                     item.GetComponent<GravitySwitch>().Construct(_pauseManager);
                     
-                    item.Initialize(_positionCalculator, _listsManipulator, _checkerDuplicate2dItems, _compareItem2DAndGoal, _item2DCounter);
+                    item.Initialize(_positionCalculator,
+                        _listsManipulator,
+                        _checkerDuplicate2dItems,
+                        _compareItem2DAndGoal,
+                        _item2DCounter);
                     item.transform.parent = gameObject.transform;
                     
                     _collectItems3D.AddToList(item);
