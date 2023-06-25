@@ -8,16 +8,14 @@ namespace Installers
 {
     public class GameInstaller : MonoInstaller
     {
-        [Header("UI Elements")]
-        [SerializeField] private Canvas _canvas;
-        
         [Header("Gameplay Elements")]
-        [SerializeField] private CounterPositionCalculator _counterPositionCalculator;
+        [SerializeField] private PositionCalculator _positionCalculator;
         [SerializeField] private ListsManipulator _listsManipulator;
         [SerializeField] private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         [SerializeField] private CompareItem2DAndGoal _compareItem2DAndGoal;
         [SerializeField] private GoalsHolder _goalsHolder;
         [SerializeField] private Timer _timer;
+        [SerializeField] private Item2DCounter _item2DCounter;
     
         public override void InstallBindings()
         {
@@ -35,8 +33,8 @@ namespace Installers
     
         private void BindGameElementConfigurations()
         {
-            Container.Bind<CounterPositionCalculator>()
-                .FromInstance(_counterPositionCalculator)
+            Container.Bind<PositionCalculator>()
+                .FromInstance(_positionCalculator)
                 .AsSingle()
                 .NonLazy();
         
@@ -45,11 +43,6 @@ namespace Installers
                 .AsSingle()
                 .NonLazy();
         
-            Container.Bind<Canvas>()
-                .FromInstance(_canvas)
-                .AsSingle()
-                .NonLazy();
-            
             Container.Bind<CheckerDuplicate2dItems>()
                 .FromInstance(_checkerDuplicate2dItems)
                 .AsSingle()
@@ -67,6 +60,11 @@ namespace Installers
             
             Container.Bind<Timer>()
                 .FromInstance(_timer)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<Item2DCounter>()
+                .FromInstance(_item2DCounter)
                 .AsSingle()
                 .NonLazy();
         }

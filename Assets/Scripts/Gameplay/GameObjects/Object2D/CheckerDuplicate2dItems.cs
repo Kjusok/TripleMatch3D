@@ -11,9 +11,9 @@ namespace Gameplay
         private const int ValueDestroy = 3;
     
         private int _step = 1;
-        private bool _isRepeatedTwice;
+        public bool _isRepeatedTwice;
     
-        private CounterPositionCalculator _counterPositionCalculator;
+        private Item2DCounter _item2DCounter;
         private Mover2DItems _mover2DItems;
         private ListsManipulator _listsManipulator;
 
@@ -23,9 +23,9 @@ namespace Gameplay
         }
         
         [Inject]
-        public void Construct(CounterPositionCalculator counterPositionCalculator)
+        public void Construct(Item2DCounter item2DCounter)
         {
-            _counterPositionCalculator = counterPositionCalculator;
+           _item2DCounter = item2DCounter;
         }
     
         private void Awake()
@@ -37,9 +37,10 @@ namespace Gameplay
         public void CheckContainsValue(string id, Item2D item2D)
         {
             IsRepeatsOnce = _listsManipulator.ItemsIDList.Contains(id);
-    
             _isRepeatedTwice = CheckMultipleOccurrences(_listsManipulator.ItemsIDList, id);
-    
+
+            _item2DCounter.CheckTaskFailed(IsRepeatsOnce);
+
             if (_isRepeatedTwice)
             {
                 _step = DoubleStep;
@@ -75,7 +76,7 @@ namespace Gameplay
                     {
                         _listsManipulator.RemoveAndDestroyDuplicateElements(id);
                         _mover2DItems.MoveRemainingObjects();
-                        _counterPositionCalculator.SubtractFromCounter();
+                        _item2DCounter.SubtractFromCounter();
     
                         break;
                     }

@@ -11,28 +11,28 @@ namespace Gameplay
         private const float StartPositionY = 4f;
         
         [SerializeField] private List<ItemCountPair> _itemCountPairs;
-        [SerializeField] private Canvas _canvas;
         private List<Item3D> _itemsClickList;
 
-        private CounterPositionCalculator _counterPositionCalculator;
+        private PositionCalculator _positionCalculator;
         private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         private CompareItem2DAndGoal _compareItem2DAndGoal;
         private CollectAndDisableItems3D _collectAndDisableItems3D;
+        private Item2DCounter _item2DCounter;
 
         
         [Inject]
-        public void Construct(CounterPositionCalculator counterPositionCalculator,
+        public void Construct(PositionCalculator positionCalculator,
             ListsManipulator listsManipulator,
-            Canvas canvas,
             CheckerDuplicate2dItems checkerDuplicate2dItems,
-            CompareItem2DAndGoal compareItem2DAndGoal)
+            CompareItem2DAndGoal compareItem2DAndGoal,
+            Item2DCounter item2DCounter)
         {
-            _counterPositionCalculator = counterPositionCalculator;
+            _positionCalculator = positionCalculator;
             _listsManipulator = listsManipulator;
-            _canvas = canvas;
             _checkerDuplicate2dItems = checkerDuplicate2dItems;
             _compareItem2DAndGoal = compareItem2DAndGoal;
+            _item2DCounter = item2DCounter;
         }
 
         private void Awake()
@@ -55,7 +55,7 @@ namespace Gameplay
                         new Vector3(Random.Range(StartPoint, EndPoint), StartPositionY, Random.Range(StartPoint, EndPoint)),
                         Quaternion.identity);
                     
-                    item.Initialize(_canvas, _counterPositionCalculator, _listsManipulator, _checkerDuplicate2dItems, _compareItem2DAndGoal);
+                    item.Initialize(_positionCalculator, _listsManipulator, _checkerDuplicate2dItems, _compareItem2DAndGoal, _item2DCounter);
                     item.transform.parent = gameObject.transform;
                     
                     _collectAndDisableItems3D.AddToList(item);

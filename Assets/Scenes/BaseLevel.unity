@@ -1332,13 +1332,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6150164838e3dd04ba6c3cd73c9dc89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvas: {fileID: 528728370}
-  _counterPositionCalculator: {fileID: 1370414232}
+  _positionCalculator: {fileID: 1370414232}
   _listsManipulator: {fileID: 1370414231}
   _checkerDuplicate2dItems: {fileID: 1370414234}
   _compareItem2DAndGoal: {fileID: 235567365}
   _goalsHolder: {fileID: 235567364}
   _timer: {fileID: 1280150466}
+  _item2DCounter: {fileID: 1370414235}
 --- !u!1 &197810107
 GameObject:
   m_ObjectHideFlags: 0
@@ -3394,6 +3394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _completeMenu: {fileID: 1954817687}
+  _failedMenu: {fileID: 1071942162}
 --- !u!1 &553586827
 GameObject:
   m_ObjectHideFlags: 0
@@ -6336,6 +6337,7 @@ GameObject:
   - component: {fileID: 1071942159}
   - component: {fileID: 1071942161}
   - component: {fileID: 1071942160}
+  - component: {fileID: 1071942162}
   m_Layer: 5
   m_Name: LevelFailedPanel
   m_TagString: Untagged
@@ -6406,6 +6408,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071942158}
   m_CullTransparentMesh: 1
+--- !u!114 &1071942162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071942158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae96e2d450546388e2ee8e2e6c41b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1074253166
 GameObject:
   m_ObjectHideFlags: 0
@@ -7117,7 +7131,6 @@ MonoBehaviour:
     _count: 10
   - _item: {fileID: 2730236560250747315, guid: ad138ff3036ac7940badf4c2371f6e5c, type: 3}
     _count: 20
-  _canvas: {fileID: 0}
 --- !u!4 &1228336009
 Transform:
   m_ObjectHideFlags: 0
@@ -7558,8 +7571,9 @@ GameObject:
   - component: {fileID: 1370414231}
   - component: {fileID: 1370414233}
   - component: {fileID: 1370414234}
+  - component: {fileID: 1370414235}
   m_Layer: 5
-  m_Name: IconsHolder
+  m_Name: 2DItemHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7647,6 +7661,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61572374d6874572aa3b1413ea410e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1370414235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370414229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be483fdc50a14d43b76de85ab87e0652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1377000978

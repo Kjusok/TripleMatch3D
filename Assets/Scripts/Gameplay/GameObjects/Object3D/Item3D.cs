@@ -5,40 +5,39 @@ namespace Gameplay
     public class Item3D : MonoBehaviour
     {
         [SerializeField] private Item2D _item2DPrefab;
-        [SerializeField] private Canvas _canvas;
 
-        private CounterPositionCalculator _counterPositionCalculator;
+        private PositionCalculator _positionCalculator;
         private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         private CompareItem2DAndGoal _compareItem2DAndGoal;
+        private Item2DCounter _item2DCounter;
         
         
-        public void Initialize(Canvas canvas,
-            CounterPositionCalculator counterPositionCalculator,
+        public void Initialize(PositionCalculator positionCalculator,
             ListsManipulator listsManipulator, 
             CheckerDuplicate2dItems checkerDuplicate2dItems,
-            CompareItem2DAndGoal compareItem2DAndGoal)
+            CompareItem2DAndGoal compareItem2DAndGoal,
+            Item2DCounter item2DCounter)
         {
-            _canvas = canvas;
-            _counterPositionCalculator = counterPositionCalculator;
+            _positionCalculator = positionCalculator;
             _listsManipulator = listsManipulator;
             _checkerDuplicate2dItems = checkerDuplicate2dItems;
             _compareItem2DAndGoal = compareItem2DAndGoal;
+            _item2DCounter = item2DCounter;
         }
 
         public void SpawnIcon()
         {
-            var item2D = Instantiate(_item2DPrefab);
+            var item2D = Instantiate(_item2DPrefab,_listsManipulator.transform, false);
 
-            _counterPositionCalculator.AddToCounter();
+            _item2DCounter.AddToCounter();
 
-            item2D.Construct(_counterPositionCalculator , _listsManipulator, _checkerDuplicate2dItems, _compareItem2DAndGoal);
-            item2D.transform.SetParent(_canvas.transform, false);
+            item2D.Construct(_positionCalculator , _listsManipulator, _checkerDuplicate2dItems, _compareItem2DAndGoal);
 
             Vector3 worldPosition = transform.position;
             Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, worldPosition);
 
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.GetComponent<RectTransform>(),
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(_listsManipulator.GetComponent<RectTransform>(),
                 screenPosition,
                 null,
                 out Vector2 localPosition);

@@ -15,7 +15,7 @@ namespace Gameplay
 
         private bool _isMovingDone;
 
-        private CounterPositionCalculator _counterPositionCalculator;
+        private PositionCalculator _positionCalculator;
         private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         private CompareItem2DAndGoal _compareItem2DAndGoal;
@@ -23,12 +23,12 @@ namespace Gameplay
 
 
         [Inject]
-        public void Construct(CounterPositionCalculator counterPositionCalculator,
+        public void Construct(PositionCalculator positionCalculator,
             ListsManipulator listsManipulator,
             CheckerDuplicate2dItems checkerDuplicate2dItems,
             CompareItem2DAndGoal compareItem2DAndGoal)
         {
-            _counterPositionCalculator = counterPositionCalculator;
+            _positionCalculator = positionCalculator;
             _listsManipulator = listsManipulator;
             _checkerDuplicate2dItems = checkerDuplicate2dItems;
             _compareItem2DAndGoal = compareItem2DAndGoal;
@@ -36,7 +36,7 @@ namespace Gameplay
 
         private void Start()
         {           
-            _targetLocalPosition = _counterPositionCalculator.TargetPosition();
+            _targetLocalPosition = _positionCalculator.TargetPosition();
 
             _checkerDuplicate2dItems.CheckContainsValue(_id, this);
             _compareItem2DAndGoal.CompareID(_id);
