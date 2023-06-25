@@ -17,6 +17,7 @@ namespace Installers
         [SerializeField] private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         [SerializeField] private CompareItem2DAndGoal _compareItem2DAndGoal;
         [SerializeField] private GoalsHolder _goalsHolder;
+        [SerializeField] private Timer _timer;
     
         public override void InstallBindings()
         {
@@ -61,6 +62,11 @@ namespace Installers
             
             Container.Bind<GoalsHolder>()
                 .FromInstance(_goalsHolder)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<Timer>()
+                .FromInstance(_timer)
                 .AsSingle()
                 .NonLazy();
         }

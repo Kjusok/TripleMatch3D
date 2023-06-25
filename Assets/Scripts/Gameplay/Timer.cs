@@ -15,6 +15,9 @@ namespace Gameplay
         
         private IPause _pauseManager;
 
+        public float CurrentTime => _timer;
+        
+
         [Inject]
         public void Construct(IPause pause)
         {
