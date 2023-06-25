@@ -24,14 +24,11 @@ namespace Gameplay
             _counter -= Triple;
         }
 
-        public void CheckTaskFailed(bool isRepeatsOnce)
+        public void CheckTaskFailed(bool isRepeatsTwice)
         {
-            if (!isRepeatsOnce)
+            if (_counter == LimitCount && !isRepeatsTwice)
             {
-                if (_counter == LimitCount)
-                {
-                    TaskFailed?.Invoke();
-                }
+                TaskFailed?.Invoke();
             }
         }
     }

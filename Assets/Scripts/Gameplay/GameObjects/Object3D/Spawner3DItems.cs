@@ -9,7 +9,7 @@ namespace Gameplay
     {
         private const float StartPoint = -3.5f;
         private const float EndPoint = 3.5f;
-        private const float StartPositionY = 4f;
+        private const float StartPositionY = 2.5f;
         
         [SerializeField] private List<ItemCountPair> _itemCountPairs;
         

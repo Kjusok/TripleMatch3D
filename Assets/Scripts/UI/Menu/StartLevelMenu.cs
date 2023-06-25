@@ -30,5 +30,10 @@ namespace UI
             
             _turnOffCollider.OffCollider();
         }
+        
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }

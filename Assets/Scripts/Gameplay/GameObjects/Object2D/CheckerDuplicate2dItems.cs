@@ -39,7 +39,7 @@ namespace Gameplay
             IsRepeatsOnce = _listsManipulator.ItemsIDList.Contains(id);
             _isRepeatedTwice = CheckMultipleOccurrences(_listsManipulator.ItemsIDList, id);
 
-            _item2DCounter.CheckTaskFailed(IsRepeatsOnce);
+            _item2DCounter.CheckTaskFailed(_isRepeatedTwice);
 
             if (_isRepeatedTwice)
             {

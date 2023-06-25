@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Gameplay.Goals;
+﻿using Gameplay.Goals;
 using UnityEngine;
 
 namespace Gameplay

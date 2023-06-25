@@ -21,7 +21,6 @@ namespace Gameplay
         private CompareItem2DAndGoal _compareItem2DAndGoal;
 
 
-
         [Inject]
         public void Construct(PositionCalculator positionCalculator,
             ListsManipulator listsManipulator,
