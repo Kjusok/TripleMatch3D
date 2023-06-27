@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace Gameplay
 {
+    [RequireComponent(typeof(ListsManipulator))]
+    [RequireComponent(typeof(Item2DCounter))]
     public class PositionCalculator : MonoBehaviour
     {
         private int _positionX;

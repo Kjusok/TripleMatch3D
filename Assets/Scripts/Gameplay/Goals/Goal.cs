@@ -4,7 +4,9 @@ namespace Gameplay.Goals
 {
     public class Goal : MoveToTarget
     {
-        [SerializeField] public string _id;
+        [SerializeField] private string _id;
+
+        public string ID => _id;
         
 
         public void Destroy()

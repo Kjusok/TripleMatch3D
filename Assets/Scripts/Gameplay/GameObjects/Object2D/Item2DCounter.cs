@@ -19,7 +19,7 @@ namespace Gameplay
             _counter++;
         }
 
-        public void SubtractFromCounter()
+        public void ApplyMatchThree()
         {
             _counter -= Triple;
         }

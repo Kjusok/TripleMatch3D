@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Gameplay
 {
+    [RequireComponent(typeof(CheckerDuplicate2dItems))]
+    [RequireComponent(typeof(Mover2DItems))]
     public class ListsManipulator : MonoBehaviour
     {
         [SerializeField] private List<Transform> _position;
@@ -27,9 +29,9 @@ namespace Gameplay
             _mover2DItems = GetComponent<Mover2DItems>();
         }
 
-        private void SwapElementsInList()
+        private void SwapElementsInList(string id)
         {
-            for (int i = ItemsIDList.Count - 1; i >= _mover2DItems.IndexFoundObject + DoubleStep; i--)
+            for (int i = ItemsIDList.Count - 1; i >= _mover2DItems.IndexFoundedObject(id) + DoubleStep; i--)
             {
                 Swap(ItemsIDList, i, i - 1);
                 Swap(ItemsList, i, i - 1);
@@ -48,7 +50,7 @@ namespace Gameplay
 
             if (_checkerDuplicate2dItems.IsRepeatsOnce)
             {
-                SwapElementsInList();
+                SwapElementsInList(id);
             }
 
             _checkerDuplicate2dItems.CheckingThreeIdentical(id);

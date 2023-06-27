@@ -1,6 +1,5 @@
 ﻿using Gameplay.Services;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace UI
@@ -26,11 +25,6 @@ namespace UI
         {
             gameObject.SetActive(false);
             _pauseManager.Paused = false;
-        }
-        
-        public void BackToStartMenu()
-        {
-            SceneManager.LoadScene("StartSceneLoader");
         }
     }
 }

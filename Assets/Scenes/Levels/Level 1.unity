@@ -1127,8 +1127,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528728372}
-        m_TargetAssemblyTypeName: UI.UIRoot, Assembly-CSharp
+      - m_Target: {fileID: 528728373}
+        m_TargetAssemblyTypeName: UI.SceneLoader, Assembly-CSharp
         m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
@@ -3506,9 +3506,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528728372}
-        m_TargetAssemblyTypeName: UI.UIRoot, Assembly-CSharp
-        m_MethodName: ExitLevel
+      - m_Target: {fileID: 528728373}
+        m_TargetAssemblyTypeName: UI.SceneLoader, Assembly-CSharp
+        m_MethodName: BackToStartMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3634,7 +3634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7706feb4cd4717b7e269090e31f222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadingScreen: {fileID: 525116699}
+  _viewPanel: {fileID: 525116699}
 --- !u!1 &528728367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,6 +3648,7 @@ GameObject:
   - component: {fileID: 528728369}
   - component: {fileID: 528728368}
   - component: {fileID: 528728372}
+  - component: {fileID: 528728373}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3768,6 +3769,19 @@ MonoBehaviour:
   _completeMenu: {fileID: 1954817687}
   _failedMenu: {fileID: 1071942162}
   _pauseMenu: {fileID: 1084857487}
+--- !u!114 &528728373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528728367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f97a3f67b94baeb25c022cb35693de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadingScreen: {fileID: 525116699}
 --- !u!1 &553586827
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,9 +4069,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528728372}
-        m_TargetAssemblyTypeName: UI.UIRoot, Assembly-CSharp
-        m_MethodName: ExitLevel
+      - m_Target: {fileID: 528728373}
+        m_TargetAssemblyTypeName: UI.SceneLoader, Assembly-CSharp
+        m_MethodName: BackToStartMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5874,9 +5888,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528728372}
-        m_TargetAssemblyTypeName: UI.UIRoot, Assembly-CSharp
-        m_MethodName: ExitLevel
+      - m_Target: {fileID: 528728373}
+        m_TargetAssemblyTypeName: UI.SceneLoader, Assembly-CSharp
+        m_MethodName: BackToStartMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6469,8 +6483,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528728372}
-        m_TargetAssemblyTypeName: UI.UIRoot, Assembly-CSharp
+      - m_Target: {fileID: 528728373}
+        m_TargetAssemblyTypeName: UI.SceneLoader, Assembly-CSharp
         m_MethodName: ReloadLevel
         m_Mode: 1
         m_Arguments:
@@ -8299,6 +8313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18dab78331ca4c9da189cc95a0ca9524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemsClickList: []
+  _foundIndices: []
+  _goalsHolder: {fileID: 0}
 --- !u!1 &1280150462
 GameObject:
   m_ObjectHideFlags: 0
@@ -12582,9 +12599,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528728372}
-        m_TargetAssemblyTypeName: UI.UIRoot, Assembly-CSharp
-        m_MethodName: ExitLevel
+      - m_Target: {fileID: 528728373}
+        m_TargetAssemblyTypeName: UI.SceneLoader, Assembly-CSharp
+        m_MethodName: BackToStartMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

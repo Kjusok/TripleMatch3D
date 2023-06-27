@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _item2DPrefab: {fileID: 865099109320177283, guid: 8dcfb5881f7365141b2c231e48a1b9e5, type: 3}
+  _id: 10
 --- !u!114 &7943320404781565124
 MonoBehaviour:
   m_ObjectHideFlags: 0

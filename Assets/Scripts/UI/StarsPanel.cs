@@ -7,9 +7,9 @@ namespace UI
 {
     public class StarsPanel: MonoBehaviour
     {
-        private const float TimeTakeThreeStars = 150;
+        private const float TimeTakeThreeStars = 160;
         private const float TimeTakeTwoStars = 120;
-        private const float TimeTakeOneStar = 60;
+        private const float TimeTakeOneStar = 100;
         
         [SerializeField] private Image _starOne;
         [SerializeField] private Image _starTwo;
@@ -31,21 +31,9 @@ namespace UI
 
         private void CheckTime()
         {
-            if (_timer.CurrentTime > TimeTakeThreeStars)
-            {
-                _starOne.enabled = true;
-                _starTwo.enabled = true;
-                _starThree.enabled = true;
-            }
-            if (_timer.CurrentTime > TimeTakeTwoStars)
-            {
-                _starOne.enabled = true;
-                _starTwo.enabled = true;
-            }
-            if (_timer.CurrentTime > TimeTakeOneStar)
-            {
-                _starOne.enabled = true;;
-            }
+            _starOne.enabled = _timer.CurrentTime > TimeTakeOneStar;
+            _starTwo.enabled = _timer.CurrentTime > TimeTakeTwoStars;
+            _starThree.enabled = _timer.CurrentTime > TimeTakeThreeStars;
         }
     }
 }

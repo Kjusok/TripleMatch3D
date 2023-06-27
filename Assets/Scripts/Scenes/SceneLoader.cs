@@ -3,9 +3,17 @@ using UnityEngine.SceneManagement;
 
 namespace UI
 {
-    public class StartSceneLoader : MonoBehaviour
+    public class SceneLoader : MonoBehaviour
     {
         [SerializeField] private GameObject _loadingScreen;
+        
+        private int _activeSceneIndex;
+
+
+        private void Start()
+        {
+            _activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        }
 
         public void ChoseFistLevel()
         {
@@ -40,6 +48,21 @@ namespace UI
             SceneManager.LoadScene("Level 5");
             
             _loadingScreen.SetActive(true);
+        }
+        
+        public void ReloadLevel()
+        {
+            SceneManager.LoadScene(_activeSceneIndex);
+        }
+        
+        public void LoadNextLevel()
+        {
+            SceneManager.LoadScene(_activeSceneIndex + 1);
+        }
+        
+        public void BackToStartMenu()
+        {
+            SceneManager.LoadScene("StartGame");
         }
     }
 }

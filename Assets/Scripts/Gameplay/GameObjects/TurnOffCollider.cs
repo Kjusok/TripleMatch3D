@@ -2,12 +2,13 @@
 
 namespace Gameplay.GameObjects
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class TurnOffCollider : MonoBehaviour
     {
         private BoxCollider _boxCollider;
         
         
-        private void Start()
+        private void Awake()
         {
             _boxCollider = GetComponent<BoxCollider>();
         }

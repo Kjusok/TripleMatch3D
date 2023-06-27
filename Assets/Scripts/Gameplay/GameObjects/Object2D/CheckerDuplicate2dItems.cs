@@ -5,13 +5,14 @@ using Zenject;
 
 namespace Gameplay
 {
+    [RequireComponent(typeof(Mover2DItems))]
+    [RequireComponent(typeof(ListsManipulator))]
     public class CheckerDuplicate2dItems : MonoBehaviour
     {
         private const int DoubleStep = 2;
         private const int ValueDestroy = 3;
     
         private int _step = 1;
-        public bool _isRepeatedTwice;
     
         private Item2DCounter _item2DCounter;
         private Mover2DItems _mover2DItems;
@@ -34,11 +35,12 @@ namespace Gameplay
         public void CheckContainsValue(string id, Item2D item2D)
         {
             IsRepeatsOnce = _listsManipulator.ItemsIDList.Contains(id);
-            _isRepeatedTwice = CheckMultipleOccurrences(_listsManipulator.ItemsIDList, id);
+            
+            var isRepeatedTwice = CheckMultipleOccurrences(_listsManipulator.ItemsIDList, id);
 
-            _item2DCounter.CheckTaskFailed(_isRepeatedTwice);
+            _item2DCounter.CheckTaskFailed(isRepeatedTwice);
 
-            if (_isRepeatedTwice)
+            if (isRepeatedTwice)
             {
                 _step = DoubleStep;
                 _mover2DItems.MoveIconRight(id, item2D, _step);
@@ -73,7 +75,7 @@ namespace Gameplay
                     {
                         _listsManipulator.RemoveAndDestroyDuplicateElements(id);
                         _mover2DItems.MoveRemainingObjects();
-                        _item2DCounter.SubtractFromCounter();
+                        _item2DCounter.ApplyMatchThree();
     
                         break;
                     }

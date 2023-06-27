@@ -4,7 +4,7 @@ namespace UI
 {
     public class LoadingScreen : MonoBehaviour
     {
-        [SerializeField] private GameObject _loadingScreen;
+        [SerializeField] private GameObject _viewPanel;
 
         private float _timer = 0.2f;
 
@@ -22,7 +22,16 @@ namespace UI
 
             if (_timer <= 0)
             {
-                _loadingScreen.SetActive(false);
+                Hide();
+            }
+        }
+
+        private void Hide()
+        {
+            if (_timer <= 0)
+            {
+                _viewPanel.SetActive(false);
+                enabled = false;
             }
         }
     }

@@ -5,6 +5,7 @@ using Zenject;
 
 namespace Gameplay
 {
+    [RequireComponent(typeof(CollectItems3D))]
     public class Spawner3DItems : MonoBehaviour
     {
         private const float StartPoint = -3.5f;
@@ -61,14 +62,14 @@ namespace Gameplay
                             Random.Range(StartPoint, EndPoint)),
                         Quaternion.identity);
                     
-                    item.GetComponent<ClickOn3DItem>().Construct(_pauseManager);
-                    item.GetComponent<GravitySwitch>().Construct(_pauseManager);
                     
                     item.Initialize(_positionCalculator,
                         _listsManipulator,
                         _checkerDuplicate2dItems,
                         _compareItem2DAndGoal,
-                        _item2DCounter);
+                        _item2DCounter,
+                        _pauseManager);
+                    
                     item.transform.parent = gameObject.transform;
                     
                     _collectItems3D.AddToList(item);
