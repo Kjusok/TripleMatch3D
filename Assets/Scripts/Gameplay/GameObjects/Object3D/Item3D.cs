@@ -16,6 +16,8 @@ namespace Gameplay
         private CompareItem2DAndGoal _compareItem2DAndGoal;
         private Item2DCounter _item2DCounter;
 
+        private Transform _magnetPosition;
+        
         public string ID => _id;
         
         public void Initialize(PositionCalculator positionCalculator,
@@ -23,25 +25,36 @@ namespace Gameplay
             CheckerDuplicate2dItems checkerDuplicate2dItems,
             CompareItem2DAndGoal compareItem2DAndGoal,
             Item2DCounter item2DCounter,
-            IPause pauseManager)
+            IPause pauseManager,
+            Transform magnetPosition)
         {
             _positionCalculator = positionCalculator;
             _listsManipulator = listsManipulator;
             _checkerDuplicate2dItems = checkerDuplicate2dItems;
             _compareItem2DAndGoal = compareItem2DAndGoal;
             _item2DCounter = item2DCounter;
+            _magnetPosition = magnetPosition;
             
             gameObject.GetComponent<ClickOn3DItem>().Construct(pauseManager);
             gameObject.GetComponent<GravitySwitch>().Construct(pauseManager);
         }
 
-        public void SpawnIcon()
+        public void SpawnIcon(bool isMagnetActive)
         {
             var item2D = Instantiate(_item2DPrefab,_listsManipulator.transform, false);
 
-            _item2DCounter.AddToCounter();
+            if (!isMagnetActive)
+            {
+                _item2DCounter.AddToCounter();
 
-            item2D.Construct(_positionCalculator , _listsManipulator, _checkerDuplicate2dItems, _compareItem2DAndGoal);
+            }
+
+            item2D.Construct(_positionCalculator,
+                _listsManipulator,
+                _checkerDuplicate2dItems,
+                _compareItem2DAndGoal,
+                isMagnetActive,
+                _magnetPosition);
 
             Vector3 worldPosition = transform.position;
             Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, worldPosition);

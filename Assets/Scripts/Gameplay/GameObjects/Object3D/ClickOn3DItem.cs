@@ -24,7 +24,7 @@ namespace Gameplay
         {
             if (!_pauseManager.Paused)
             {
-                GetComponent<Item3D>().SpawnIcon();
+                GetComponent<Item3D>().SpawnIcon(false);
 
                 Destroy(gameObject);
             }

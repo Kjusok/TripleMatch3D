@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    [RequireComponent(typeof(CollectItems3D))]
+    [RequireComponent(typeof(MagnetBooster))]
     public class Spawner3DItems : MonoBehaviour
     {
         private const float StartPoint = -3.5f;
@@ -13,13 +13,14 @@ namespace Gameplay
         private const float StartPositionY = 2.5f;
         
         [SerializeField] private List<ItemCountPair> _itemCountPairs;
+        [SerializeField] private Transform _magnetPosition;
         
         private List<Item3D> _itemsClickList;
         private PositionCalculator _positionCalculator;
         private ListsManipulator _listsManipulator;
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         private CompareItem2DAndGoal _compareItem2DAndGoal;
-        private CollectItems3D _collectItems3D;
+        private MagnetBooster _magnetBooster;
         private Item2DCounter _item2DCounter;
         private IPause _pauseManager;
 
@@ -42,7 +43,7 @@ namespace Gameplay
 
         private void Awake()
         {
-            _collectItems3D = GetComponent<CollectItems3D>();
+            _magnetBooster = GetComponent<MagnetBooster>();
         }
 
         private void Start()
@@ -68,11 +69,12 @@ namespace Gameplay
                         _checkerDuplicate2dItems,
                         _compareItem2DAndGoal,
                         _item2DCounter,
-                        _pauseManager);
+                        _pauseManager,
+                        _magnetPosition);
                     
                     item.transform.parent = gameObject.transform;
                     
-                    _collectItems3D.AddToList(item);
+                    _magnetBooster.AddToList(item);
                 }
             }
         }
