@@ -8,6 +8,8 @@ namespace Gameplay
 {
     public class MagnetBooster : MonoBehaviour
     {
+        [SerializeField] private MagnetEffect _magnetEffect;        
+        
         private List<Item3D> _itemsOnScene;
         private List<Item3D> _currentGoals;
         private List<int> _indexesItemsToRemoved;
@@ -52,6 +54,8 @@ namespace Gameplay
             _indexesIdenticalItems = new List<int>();
             _indexesItemsToRemoved = new List<int>();
 
+            _magnetEffect.StartEffect();
+            
             ClearListOfEmpties();
             FindIdenticalItems();
             DestroyIdenticalTargetsOnScene();

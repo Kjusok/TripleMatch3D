@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Audio;
+using Gameplay.Services;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Goals
 {
@@ -14,11 +17,19 @@ namespace Gameplay.Goals
         [SerializeField] private List<Transform> _positionGoal;
         [SerializeField] private List<Transform>  _positionCount;
 
+        private SoundsList _soundsList;
+
         public List<GoalData> GoalData => _goalData;
         public List<Goal> CurrentGoal => _currentGoal;
 
         public event Action TaskCompleted;
 
+        
+        [Inject]
+        public void Construct(SoundsList soundsList)
+        {
+            _soundsList = soundsList;
+        }
 
         private void Start()
         {
@@ -53,6 +64,8 @@ namespace Gameplay.Goals
 
         public void RemoveGoalElements(int i)
         {
+            _soundsList.VanishingGoal();
+            
             _goalData.RemoveAt(i);
             
             _currentGoal[i].Destroy();

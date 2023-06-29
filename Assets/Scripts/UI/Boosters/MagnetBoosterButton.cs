@@ -1,7 +1,10 @@
-﻿using Gameplay;
+﻿using Audio;
+using Gameplay;
+using Gameplay.Services;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UI
 {
@@ -16,7 +19,14 @@ namespace UI
         [SerializeField] private TMP_Text _numberOfChargesText;
 
         private int _numberOfCharges;
+        private SoundsList _soundsList;
 
+        
+        [Inject]
+        public void Construct(SoundsList soundsList)
+        {
+            _soundsList = soundsList;
+        }
 
         private void Start()
         {
@@ -39,6 +49,8 @@ namespace UI
 
         public void ActivateBooster()
         {
+            _soundsList.Magnet();
+            
             if (_numberOfCharges >= 1)
             {
                 _numberOfCharges--;

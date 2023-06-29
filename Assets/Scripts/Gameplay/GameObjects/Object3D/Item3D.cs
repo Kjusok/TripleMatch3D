@@ -1,3 +1,4 @@
+using Audio;
 using Gameplay.Services;
 using UnityEngine;
 
@@ -15,7 +16,8 @@ namespace Gameplay
         private CheckerDuplicate2dItems _checkerDuplicate2dItems;
         private CompareItem2DAndGoal _compareItem2DAndGoal;
         private Item2DCounter _item2DCounter;
-
+        private SoundsList _soundsList;
+        
         private Transform _magnetPosition;
         
         public string ID => _id;
@@ -26,7 +28,8 @@ namespace Gameplay
             CompareItem2DAndGoal compareItem2DAndGoal,
             Item2DCounter item2DCounter,
             IPause pauseManager,
-            Transform magnetPosition)
+            Transform magnetPosition,
+            SoundsList soundsList)
         {
             _positionCalculator = positionCalculator;
             _listsManipulator = listsManipulator;
@@ -35,7 +38,7 @@ namespace Gameplay
             _item2DCounter = item2DCounter;
             _magnetPosition = magnetPosition;
             
-            gameObject.GetComponent<ClickOn3DItem>().Construct(pauseManager);
+            gameObject.GetComponent<ClickOn3DItem>().Construct(pauseManager, soundsList);
             gameObject.GetComponent<GravitySwitch>().Construct(pauseManager);
         }
 

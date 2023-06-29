@@ -26,8 +26,8 @@ namespace Installers
         
         [Header("Timer")]
         [SerializeField] private Timer _timer;
-        
-        
+
+
         public override void InstallBindings()
         {
             BindGameElementConfigurations();
@@ -51,7 +51,7 @@ namespace Installers
                 .AsSingle()
                 .Lazy();
         }
-
+        
         private void BindGameElementConfigurations()
         {
             Container.Bind<PositionCalculator>()

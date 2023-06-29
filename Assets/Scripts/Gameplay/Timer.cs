@@ -55,7 +55,7 @@ namespace Gameplay
 
             text.text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
             
-            _completeMenu.SafeTime(text.text);
+            _completeMenu.SaveTime(text.text);
         }
     }
 }

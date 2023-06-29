@@ -1,3 +1,4 @@
+using Audio;
 using Gameplay.Services;
 using UnityEngine;
 using Zenject;
@@ -12,18 +13,21 @@ namespace Gameplay
         private Vector3 _startScale;
         
         private IPause _pauseManager;
-        
+        private SoundsList _soundsList;
+
         
         [Inject]
-        public void Construct(IPause pause)
+        public void Construct(IPause pause, SoundsList soundsList)
         {
             _pauseManager = pause;
+            _soundsList = soundsList;
         }
-
+       
         public void OnMouseUp()
         {
             if (!_pauseManager.Paused)
             {
+                _soundsList.TakeItem();
                 GetComponent<Item3D>().SpawnIcon(false);
 
                 Destroy(gameObject);

@@ -1,4 +1,5 @@
-﻿using Gameplay.GameObjects;
+﻿using Audio;
+using Gameplay.GameObjects;
 using Gameplay.Services;
 using UnityEngine;
 using Zenject;
@@ -10,12 +11,14 @@ namespace UI
         [SerializeField] private TurnOffCollider _turnOffCollider;
         
         private IPause _pauseManager;
-        
+        private SoundsList _soundsList;
+
         
         [Inject]
-        public void Construct(IPause pause)
+        public void Construct(IPause pause, SoundsList soundsList)
         {
             _pauseManager = pause;
+            _soundsList = soundsList;
         }
 
         private void Start()
@@ -25,6 +28,10 @@ namespace UI
 
         public void Close()
         {
+            _soundsList.FallingItems();
+
+            _soundsList.Click();
+            
             gameObject.SetActive(false);
             _pauseManager.Paused = false;
             
@@ -33,6 +40,7 @@ namespace UI
         
         public void QuitGame()
         {
+            _soundsList.Click();
             Application.Quit();
         }
     }

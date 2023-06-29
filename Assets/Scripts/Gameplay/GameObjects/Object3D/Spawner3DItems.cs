@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Audio;
 using Gameplay.Services;
 using UnityEngine;
 using Zenject;
@@ -23,6 +24,7 @@ namespace Gameplay
         private MagnetBooster _magnetBooster;
         private Item2DCounter _item2DCounter;
         private IPause _pauseManager;
+        private SoundsList _soundsList;
 
         
         [Inject]
@@ -31,7 +33,8 @@ namespace Gameplay
             CheckerDuplicate2dItems checkerDuplicate2dItems,
             CompareItem2DAndGoal compareItem2DAndGoal,
             Item2DCounter item2DCounter,
-            IPause pause)
+            IPause pause,
+            SoundsList soundsList)
         {
             _positionCalculator = positionCalculator;
             _listsManipulator = listsManipulator;
@@ -39,6 +42,7 @@ namespace Gameplay
             _compareItem2DAndGoal = compareItem2DAndGoal;
             _item2DCounter = item2DCounter;
             _pauseManager = pause;
+            _soundsList = soundsList;
         }
 
         private void Awake()
@@ -70,7 +74,8 @@ namespace Gameplay
                         _compareItem2DAndGoal,
                         _item2DCounter,
                         _pauseManager,
-                        _magnetPosition);
+                        _magnetPosition,
+                        _soundsList);
                     
                     item.transform.parent = gameObject.transform;
                     
