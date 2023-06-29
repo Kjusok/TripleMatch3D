@@ -1831,13 +1831,13 @@ MonoBehaviour:
   _goalData:
   - _goal: {fileID: 1893650589485031621, guid: 5924e57808c135446bebd217ecd9da4a, type: 3}
     _count: 9
-    _text: {fileID: 0}
+    _text: {fileID: 332842478}
   _currentGoal: []
   _currentText:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 332842478}
+  - {fileID: 275526990}
+  - {fileID: 2063183904}
+  - {fileID: 1109052612}
   _positionGoal:
   - {fileID: 1658944696}
   - {fileID: 664929796}
@@ -4683,7 +4683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &664929796
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12327,7 +12327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1846609736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14010,7 +14010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2086692041
 RectTransform:
   m_ObjectHideFlags: 0
