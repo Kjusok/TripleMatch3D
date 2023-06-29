@@ -69,5 +69,10 @@ namespace Gameplay
 
             item2D.GetComponent<RectTransform>().anchoredPosition = localPosition;
         }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
     } 
 }

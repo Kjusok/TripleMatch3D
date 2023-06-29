@@ -37,11 +37,5 @@ namespace UI
             
             _turnOffCollider.OffCollider();
         }
-        
-        public void QuitGame()
-        {
-            _soundsList.Click();
-            Application.Quit();
-        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Audio;
-using Gameplay.Services;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -95,7 +94,7 @@ namespace Gameplay.Goals
             
             for (int i = _currentText.Count - 1; i >= index; i--)
             {
-                _currentText[i].GetComponent<MoveToTarget>().ChangePosition(_positionCount[i].position);
+               _currentText[i].GetComponent<MoveToTarget>().ChangePosition(_positionCount[i].position);
             }
         }
     }

@@ -107,6 +107,7 @@ namespace Gameplay
                 int index = _indexesItemsToRemoved[i];
                 
                 _itemsOnScene[index].SpawnIcon(true);
+                _itemsOnScene[index].Destroy();
             }
         }
     }
