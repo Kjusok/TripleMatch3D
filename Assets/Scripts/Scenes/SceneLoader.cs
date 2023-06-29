@@ -29,7 +29,6 @@ namespace UI
             SceneManager.LoadScene("Level 1");
 
             _loadingScreen.SetActive(true);
-            _soundsList.Click();
         }
 
         public void ChoseSecondLevel()
@@ -37,7 +36,6 @@ namespace UI
             SceneManager.LoadScene("Level 2");
 
             _loadingScreen.SetActive(true);
-            _soundsList.Click();
         }
 
         public void ChoseThirdLevel()
@@ -45,7 +43,6 @@ namespace UI
             SceneManager.LoadScene("Level 3");
 
             _loadingScreen.SetActive(true);
-            _soundsList.Click();
         }
 
         public void ChoseFourthLevel()
@@ -53,7 +50,6 @@ namespace UI
             SceneManager.LoadScene("Level 4");
 
             _loadingScreen.SetActive(true);
-            _soundsList.Click();
         }
 
         public void ChoseFifthLevel()
@@ -61,25 +57,21 @@ namespace UI
             SceneManager.LoadScene("Level 5");
 
             _loadingScreen.SetActive(true);
-            _soundsList.Click();
         }
 
         public void ReloadLevel()
         {
             SceneManager.LoadScene(_activeSceneIndex);
-            _soundsList.Click();
         }
 
         public void LoadNextLevel()
         {
             SceneManager.LoadScene(_activeSceneIndex + 1);
-            _soundsList.Click();
         }
 
         public void BackToStartMenu()
         {
             SceneManager.LoadScene("StartGame");
-            _soundsList.Click();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Audio;
-using Gameplay;
+﻿using Gameplay;
 using Gameplay.Goals;
 using UnityEngine;
 using Zenject;
@@ -35,12 +34,12 @@ namespace UI
             _failedLevel.TaskFailed -= _failedMenu.Open;
         }
         
-        public void SettingsOn()
+        public void PauseMenuOn()
         {
             _pauseMenu.Open();
         }
         
-        public void SettingsOff()
+        public void PauseMenuOff()
         {
             _pauseMenu.Close();
         }

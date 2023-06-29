@@ -9,8 +9,6 @@ namespace Installers
 {
     public class GameInstaller : MonoInstaller
     {
-        [Header("Gameplay Elements")]
-        
         [Header("3D Items")]
         [SerializeField] private Spawner3DItems _spawner3DItems;
         

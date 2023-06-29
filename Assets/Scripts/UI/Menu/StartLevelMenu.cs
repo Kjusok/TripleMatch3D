@@ -29,8 +29,6 @@ namespace UI
         public void Close()
         {
             _soundsList.FallingItems();
-
-            _soundsList.Click();
             
             gameObject.SetActive(false);
             _pauseManager.Paused = false;

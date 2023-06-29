@@ -2023,7 +2023,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 528728372}
         m_TargetAssemblyTypeName: UI.UIRoot, Assembly-CSharp
-        m_MethodName: SettingsOff
+        m_MethodName: PauseMenuOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5766,7 +5766,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 528728372}
         m_TargetAssemblyTypeName: UI.UIRoot, Assembly-CSharp
-        m_MethodName: SettingsOn
+        m_MethodName: PauseMenuOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13681,7 +13681,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 528728372}
         m_TargetAssemblyTypeName: UI.UIRoot, Assembly-CSharp
-        m_MethodName: SettingsOff
+        m_MethodName: PauseMenuOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -62,11 +62,8 @@ namespace Gameplay
                 for (int j = 0; j < pair.Count; j++)
                 {
                     var item = Instantiate(pair.Item,
-                        new Vector3(Random.Range(StartPoint, EndPoint),
-                            StartPositionY,
-                            Random.Range(StartPoint, EndPoint)),
+                        new Vector3(Random.Range(StartPoint, EndPoint), StartPositionY, Random.Range(StartPoint, EndPoint)),
                         Quaternion.identity);
-                    
                     
                     item.Initialize(_positionCalculator,
                         _listsManipulator,
