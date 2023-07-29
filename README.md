@@ -1,5 +1,8 @@
 # TripleMatch3D
- *Remake of "Triple match 3D" game!*
+ *Remake of "Triple match 3D" game.
+This is a game where you need to
+connect identical items in rows of three, solve
+puzzles, and use boosters to complete levels.*
  
 
  **Tech stack:** Zenject, Event System, Audio, Scene Management, Game loop, Unity UI, Game Levels, Game Mechanics, TextMeshPro, Using asset store.
